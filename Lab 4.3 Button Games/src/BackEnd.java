@@ -25,11 +25,10 @@ public class BackEnd {
 	}
 
 	public BackEnd(int x)
-	{this.count=count;
+	{GameCode gc=new GameCode();
+	 this.count=count;
 	 this.buttonPressed=buttonPressed;
 	 count=x;
-	 updateCount(x);
-	 editFile("testcsv.txt",x);	
 	}
     
 	
@@ -37,7 +36,7 @@ public class BackEnd {
 	{Path pathtoFile=Paths.get(filename);
 	 try(BufferedWriter bw=Files.newBufferedWriter(pathtoFile, StandardCharsets.US_ASCII))
 	   { Integer countstring= new Integer(count);
-		 bw.write(countstring.toString()+",");
+		 bw.write(gc.countstring.toString()+",");
 	   }
 	  catch (IOException ioe)
 	 {ioe.printStackTrace();}
